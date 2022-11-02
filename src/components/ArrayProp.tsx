@@ -8,8 +8,8 @@ type ArrayProps = {
 export const ArrayProp = (props: ArrayProps) => {
   return (
     <div>
-      {props.names.map((name) => (
-        <h2>
+      {props.names.map((name, i) => (
+        <h2 key={i}>
           {name.first} {name.last}
         </h2>
       ))}

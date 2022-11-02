@@ -10,6 +10,11 @@ import { Input } from "./components/Input";
 import { Container } from "./components/Container";
 import DestructuringProps from "./components/DestructuringProps";
 import ExportingTypes from "./components/ExportingTypes";
+import Counter from "./components/state/Counter";
+import { Box } from "./components/context/Box";
+import { ThemeContextProvider } from "./components/context/ThemeContext";
+import { UserContextProvider } from "./components/context/UserContext";
+import { User } from "./components/context/User";
 
 function App() {
   const personName = {
@@ -52,9 +57,17 @@ function App() {
           console.log(e);
         }}
       />
-      <Container styles={{ border: "1px solid black", padding: "1rem" }} />
+      <Container style={{ border: "1px solid black", padding: "1rem" }} />
       <DestructuringProps name="DestructuringProps" />
       <ExportingTypes name="Export types" />
+      {/* <User name="pooja" email="pooja@gmail.com" /> */}
+      <Counter />
+      <ThemeContextProvider>
+        <Box />
+      </ThemeContextProvider>
+      <UserContextProvider>
+        <User />
+      </UserContextProvider>
     </div>
   );
 }
