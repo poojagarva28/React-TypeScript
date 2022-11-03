@@ -5,7 +5,7 @@ import { ArrayProp } from "./components/ArrayProp";
 import Status from "./components/Status";
 import { Heading } from "./components/Heading";
 import { Oscar } from "./components/Oscar";
-import { Button } from "./components/Button";
+// import { Button } from "./components/Button";
 import { Input } from "./components/Input";
 import { Container } from "./components/Container";
 import DestructuringProps from "./components/DestructuringProps";
@@ -18,6 +18,12 @@ import { User } from "./components/context/User";
 import MutableRef from "./components/ref/MutableRef";
 import { Private } from "./components/auth/Private";
 import { Profile } from "./components/auth/Profile";
+import DomRef from "./components/ref/DomRef";
+import { List } from "./components/generics/List";
+import { Button } from "./components/html/Button";
+import { RandomNumber } from "./components/RestrictingProp/RandomNumber";
+import { Toast } from "./components/templateliterals/Toast";
+import { Extract } from "./components/html/Extract";
 
 function App() {
   const personName = {
@@ -51,9 +57,9 @@ function App() {
         <Heading>Oscar text</Heading>
       </Oscar>
       <SimpleProps name="Pooja2" isLoggedIn={true} />
-      <Button
+      {/* <Button
         handleClick={(event, id) => console.log("Button Clicked!", event, id)}
-      />
+      /> */}
       <Input
         value=""
         handleChange={(e) => {
@@ -73,6 +79,19 @@ function App() {
       </UserContextProvider>
       <MutableRef />
       <Private isLoggedIn={true} component={Profile} />
+      <DomRef />
+      <List
+        items={["item1", "item2", "item3"]}
+        onClick={(item) => console.log(item)}
+      />
+      <List items={[1, 2, 3]} onClick={(item) => console.log(item)} />
+      <List items={nameList} onClick={(item) => console.log(item)} />
+      <Toast position="center" />
+      <RandomNumber value={10} isPositive />
+      <Button variant="primary" onClick={() => console.log("button clicked!")}>
+        Custom Button
+      </Button>
+      <Extract name="this is a name" isLoggedIn={false} />
     </div>
   );
 }
